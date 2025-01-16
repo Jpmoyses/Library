@@ -1,0 +1,147 @@
+:root{
+    --title-color: #f43f5e;
+    --bg-color: #172554;
+    --green-color: #22c55e;
+    --bluey: #0284c7;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(218deg, rgba(74,8,27,1) 0%, rgba(30,35,116,1) 64%, rgba(29,99,166,1) 100%); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 1.3em;
+}
+
+body h1{
+    color: var(--title-color);
+    text-shadow: 1px 1px 5px var(--title-color);
+}
+
+table {
+    table-layout: fixed;
+    width: 60vw;
+    border-collapse: separate;
+    border: 2px solid var(--title-color);
+    border-radius: 24px;
+    color: aliceblue;
+  }
+  
+  th,
+  td {
+    padding: 20px;
+    text-align: center;
+    border-left:solid var(--title-color) 1px;
+    border-top:solid var(--title-color) 1px;
+  }
+
+  th{
+    border-top: none;
+  }
+
+  td:first-child, th:first-child {
+    border-left: none;
+}
+
+button{
+    padding: 0.8em 1.5em;
+    margin-top: 1em;
+    border: 1px solid var(--title-color);
+    border-radius: 8px;
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: 700;
+    transition-duration: 0.4s;
+}
+button:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+    background-color: var(--title-color);
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.read{
+  margin: 0;
+}
+
+.yes{
+  border-color: var(--green-color);
+}
+
+.yes:hover{
+  background-color: var(--green-color);
+}
+
+.no{
+  border-color: var(--title-color);
+}
+
+.no:hover{
+  background-color: var(--title-color);
+}
+
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+#confirm{
+  background-color: gray;
+  border: 1px solid gray;
+}
+#confirm:hover{
+  transform: scale(1);
+  cursor: default;
+}
+/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+
+dialog{
+  background-color: var(--bg-color);
+  width: 23vw;
+  border: 1px solid var(--bluey);
+  border-radius: 12px;
+  box-shadow: 2px 2px 10px var(--bluey);
+}
+
+
+.end{
+  flex-direction: row;
+  align-self: center;
+  gap: 25px;
+}
+
+::backdrop{
+  background-color: black;
+  opacity: 0.55;
+}
+
+.content{
+  color: aliceblue;
+  margin: 0;
+  padding: 0.6em 0.8em; gap: 20px;
+  width: 100%;
+  font-weight: 600;
+}
+
+.inputs{
+  width: inherit;
+  padding: 0.3em 0.5em;
+  border: 0px solid black;
+  border-radius: 8px;
+}
+
+.inputs:focus{
+  border: 1px solid var(--title-color);
+  outline: none;
+}
+
+.content h2{
+  margin: 0;
+  align-self: center;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

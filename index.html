@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="modern-normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Library</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Release year</th>
+            <th>Pages</th>
+            <th>Read</th>
+        </tr>
+            <td>aaaa</td>
+            <td>ssss</td>
+            <td>ssss</td>
+            <td>ssss</td>
+            <td><button class="read no">✘✔</button></td>
+        <tr>
+
+        </tr>
+
+    </table>
+
+    <dialog>
+        <form class="flex">
+            <div class="content flex">
+                <h2 >Add a new book</h2>
+                <div class="flex inputs">
+                    <label for="title">Title </label>
+                    <input type="text" id="title" name="title" class="inputs"/>
+                </div>
+
+                <div class="flex inputs">
+                    <label for="author">Author </label>
+                    <input type="text" id="author" name="author" class="inputs"/>
+                </div>
+
+                <div class="flex inputs">
+                    <label for="year">Release year </label>
+                    <input type="text" id="year" name="year" class="inputs" onkeypress="return /[0-9]/i.test(event.key)" >
+                </div>
+
+                <div class="flex inputs">
+                    <label for="pages">Pages </label>
+                    <input type="text" id="pages" name="pages" class="inputs" onkeypress="return /[0-9]/i.test(event.key)" >
+                </div>
+
+                <div>
+                    <label for="read">Read</label>
+                   <input type="checkbox" name="read" id="read">
+                </div>
+            </div>
+
+            <div class="flex end">
+                <button class="dialog no" id="cancel">Cancel</button>
+                <button class="dialog yes" id="confirm" disabled>Confirm</button>
+            </div>
+        </form>
+    </dialog>
+
+    <button id="addBook">Add book</button>
+</body>
+<script src="main.js"></script>
+</html>
