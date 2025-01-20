@@ -121,21 +121,90 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var dialog = document.querySelector('dialog');
 var addBook = document.getElementById('addBook');
 var closeDialog = document.getElementById('cancel');
+var getForm = document.getElementById('confirm');
+var table = document.querySelector('table');
 var myLibrary = [];
 var indexNumber = 0;
 
 // create book and add it to the library
-function Book(title, author, release, read) {
-  this.title = title;
-  this.author = author;
-  this.release = release;
-  this.read = read;
+function Book() {
+  var _this = this;
+  var inputs = document.querySelectorAll('input');
+  inputs.forEach(function (element) {
+    if (element.id == 'title') {
+      _this.title = element.value;
+    }
+    if (element.id == 'author') {
+      _this.author = element.value;
+    }
+    if (element.id == 'year') {
+      _this.release = element.value;
+    }
+    if (element.id == 'pages') {
+      _this.pages = element.value;
+    }
+    if (element.id == 'read') {
+      _this.read = element.checked;
+    }
+    console.log(_this.read);
+  });
   this.index = undefined;
 }
 function addBookToLibrary(book) {
-  this.book.index = indexNumber;
+  book.index = indexNumber;
   indexNumber++;
   myLibrary.push(book);
+}
+function addBookToTable(book) {
+  var tr = document.createElement('tr');
+  var button = document.createElement('button');
+  if (book.read == false) {
+    button.classList.add('read', 'no');
+    button.innerText = '✘';
+  } else {
+    button.classList.add('read', 'yes');
+    button.innerText = '✔';
+  }
+  button.addEventListener('click', function () {
+    if (button.classList.contains('no')) {
+      button.classList.remove('no');
+      button.classList.add('yes');
+      button.innerText = '✔';
+      book.read = true;
+    } else {
+      button.classList.remove('yes');
+      button.classList.add('no');
+      button.innerText = '✘';
+      book.read = false;
+    }
+  });
+  var title = document.createElement('td');
+  title.innerText = book.title;
+  tr.appendChild(title);
+  var author = document.createElement('td');
+  author.innerText = book.author;
+  tr.appendChild(author);
+  var release = document.createElement('td');
+  release.innerText = book.release;
+  tr.appendChild(release);
+  var pages = document.createElement('td');
+  pages.innerText = book.pages;
+  tr.appendChild(pages);
+  var read = document.createElement('td');
+  read.appendChild(button);
+  tr.appendChild(read);
+  table.append(tr);
+}
+
+// clear modal after closing it
+function ClearModal() {
+  var inputs = document.querySelectorAll('input');
+  inputs.forEach(function (element) {
+    element.value = '';
+    if (element.type == 'checkbox') {
+      element.checked = false;
+    }
+  });
 }
 
 // dialog popup
@@ -144,8 +213,23 @@ addBook.addEventListener("click", function () {
 });
 closeDialog.addEventListener("click", function (event) {
   event.preventDefault();
+  ClearModal();
   dialog.close();
 });
+getForm.addEventListener("click", function (event) {
+  event.preventDefault();
+  newBook = new Book();
+  addBookToLibrary(newBook);
+  addBookToTable(newBook);
+  ClearModal();
+  dialog.close();
+});
+
+// 
+// delete book
+// work with indexes
+// all inputs validation
+//
 },{}],"../../.nvm/versions/node/v22.11.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -171,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40581" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

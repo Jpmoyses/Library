@@ -18,15 +18,6 @@
             <th>Pages</th>
             <th>Read</th>
         </tr>
-            <td>aaaa</td>
-            <td>ssss</td>
-            <td>ssss</td>
-            <td>ssss</td>
-            <td><button class="read no">✘✔</button></td>
-        <tr>
-
-        </tr>
-
     </table>
 
     <dialog>
@@ -35,22 +26,22 @@
                 <h2>Add a new book</h2>
                 <div class="flex inputs">
                     <label for="title">Title </label>
-                    <input type="text" id="title" name="title" class="inputs">
+                    <input type="text" id="title" name="title" class="inputs" autocomplete="off" required="">
                 </div>
 
                 <div class="flex inputs">
                     <label for="author">Author </label>
-                    <input type="text" id="author" name="author" class="inputs">
+                    <input type="text" id="author" name="author" class="inputs" autocomplete="off" required="">
                 </div>
 
                 <div class="flex inputs">
                     <label for="year">Release year </label>
-                    <input type="text" id="year" name="year" class="inputs" onkeypress="return /[0-9]/i.test(event.key)">
+                    <input type="text" id="year" name="year" class="inputs" autocomplete="off" required="" onkeypress="return /[0-9]/i.test(event.key)">
                 </div>
 
                 <div class="flex inputs">
                     <label for="pages">Pages </label>
-                    <input type="text" id="pages" name="pages" class="inputs" onkeypress="return /[0-9]/i.test(event.key)">
+                    <input type="text" id="pages" name="pages" class="inputs" autocomplete="off" required="" onkeypress="return /[0-9]/i.test(event.key)">
                 </div>
 
                 <div>
@@ -61,7 +52,7 @@
 
             <div class="flex end">
                 <button class="dialog no" id="cancel">Cancel</button>
-                <button class="dialog yes" id="confirm" disabled="">Confirm</button>
+                <button class="dialog yes" id="confirm">Confirm</button>
             </div>
         </form>
     </dialog>

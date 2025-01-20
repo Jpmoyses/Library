@@ -88,17 +88,6 @@ button:hover{
   background-color: var(--title-color);
 }
 
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-#confirm{
-  background-color: gray;
-  border: 1px solid gray;
-}
-#confirm:hover{
-  transform: scale(1);
-  cursor: default;
-}
-/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
-
 dialog{
   background-color: var(--bg-color);
   width: 23vw;
