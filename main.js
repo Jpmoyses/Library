@@ -4,7 +4,7 @@ const closeDialog = document.getElementById('cancel');
 const getForm = document.getElementById('confirm');
 const table = document.querySelector('table');
 
-const myLibrary = [];
+let myLibrary = [];
 let indexNumber = 0
 
 // create book and add it to the library
@@ -16,18 +16,27 @@ function Book(){
         if (element.id == 'year'){this.release = element.value;}
         if (element.id == 'pages'){this.pages = element.value;}
         if (element.id == 'read'){this.read = element.checked;}
-        console.log(this.read);
-        
     });
     this.index = undefined;
 }
+Book.prototype.delete = function(index){
+    const tableRow = document.querySelectorAll('tr');
+    tableRow.forEach(element => {
+        if (element.classList.contains(index)){
+            element.remove();
+        }
+    })
+}
+
 function addBookToLibrary(book){
     book.index = indexNumber;
     indexNumber++;
     myLibrary.push(book);
 }
+
 function addBookToTable(book){
     const tr = document.createElement('tr');
+    tr.classList.add(book.index)
     const button = document.createElement('button');
     if (book.read == false){
         button.classList.add('read', 'no');
@@ -52,6 +61,7 @@ function addBookToTable(book){
         }
     })
 
+
     let title = document.createElement('td');
     title.innerText = book.title;
     tr.appendChild(title);
@@ -70,8 +80,22 @@ function addBookToTable(book){
 
     let read = document.createElement('td');
     read.appendChild(button);
-    tr.appendChild(read);
+    tr.appendChild(read);   
 
+    let deleteColumn = document.createElement('td');
+    const delButton = document.createElement('button');
+    const img = document.createElement('img');
+    img.src = './trash.svg';
+    delButton.appendChild(img);
+    delButton.classList.add('read', 'no');
+    delButton.addEventListener('click', ()=>{
+        book.delete(book.index);
+        myLibrary = myLibrary.filter((books) => books.index !== book.index);
+    })
+    deleteColumn.appendChild(delButton);
+    tr.appendChild(deleteColumn);
+
+    
     table.append(tr);
 }
 
